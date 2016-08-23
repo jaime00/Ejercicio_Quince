@@ -73,6 +73,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Calcular"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdCalcularActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="80" y="150" width="-1" height="-1"/>
@@ -83,6 +86,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Borrar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdBorrarActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="230" y="150" width="-1" height="-1"/>
@@ -131,15 +137,15 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Monto total a pagar"/>
+            <Property name="text" type="java.lang.String" value="Monto total a pagar+ iva"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="90" y="280" width="-1" height="-1"/>
+              <AbsoluteConstraints x="70" y="280" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="cmdTotal">
+        <Component class="javax.swing.JTextField" name="lblTotal">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>

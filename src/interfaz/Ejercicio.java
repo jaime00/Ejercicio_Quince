@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jaime
@@ -38,7 +40,7 @@ public class Ejercicio extends javax.swing.JFrame {
         lblMontoOrdinarias = new javax.swing.JTextField();
         lblMontoEspeciales = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        cmdTotal = new javax.swing.JTextField();
+        lblTotal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,9 +60,19 @@ public class Ejercicio extends javax.swing.JFrame {
         jPanel1.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 60, -1));
 
         cmdCalcular.setText("Calcular");
+        cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCalcularActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
 
         cmdBorrar.setText("Borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, -1));
 
         jLabel3.setText("Monto de la cuota ordinaria");
@@ -75,11 +87,11 @@ public class Ejercicio extends javax.swing.JFrame {
         lblMontoEspeciales.setEditable(false);
         jPanel1.add(lblMontoEspeciales, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 60, -1));
 
-        jLabel5.setText("Monto total a pagar");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
+        jLabel5.setText("Monto total a pagar+ iva");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
 
-        cmdTotal.setEditable(false);
-        jPanel1.add(cmdTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 60, -1));
+        lblTotal.setEditable(false);
+        jPanel1.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 60, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,6 +115,37 @@ public class Ejercicio extends javax.swing.JFrame {
                  evt.consume(); 
           } 
     }//GEN-LAST:event_txtMontoKeyTyped
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+        
+        txtMonto.setText("");
+        lblMontoEspeciales.setText("");
+        lblMontoOrdinarias.setText("");
+        lblTotal.setText("");
+        
+        txtMonto.requestFocusInWindow();
+    }//GEN-LAST:event_cmdBorrarActionPerformed
+
+    private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+
+        if(txtMonto.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Digite el monto del prestamo","ERROR",JOptionPane.ERROR_MESSAGE);
+            txtMonto.requestFocusInWindow();
+        }else{
+            
+            double monto=Double.parseDouble(txtMonto.getText());
+            
+            double pres=monto+((24*monto)/100);
+            double ce=(pres/2)/4;
+            double co=(pres/2)/20;
+            
+            lblMontoOrdinarias.setText(""+co);
+            lblMontoEspeciales.setText(""+ce);
+            lblTotal.setText(""+pres);
+
+        }
+            
+    }//GEN-LAST:event_cmdCalcularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,7 +185,6 @@ public class Ejercicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cmdBorrar;
     private javax.swing.JButton cmdCalcular;
-    private javax.swing.JTextField cmdTotal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -151,6 +193,7 @@ public class Ejercicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField lblMontoEspeciales;
     private javax.swing.JTextField lblMontoOrdinarias;
+    private javax.swing.JTextField lblTotal;
     private javax.swing.JTextField txtMonto;
     // End of variables declaration//GEN-END:variables
 }
